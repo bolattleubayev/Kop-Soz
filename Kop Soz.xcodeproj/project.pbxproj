@@ -7,25 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA87F17D23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F17C23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift */; };
+		FA87F17F23BABF1A00BB7CFD /* NewSectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F17E23BABF1A00BB7CFD /* NewSectionTableViewController.swift */; };
+		FA87F18123C4599800BB7CFD /* AllCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F18023C4599800BB7CFD /* AllCollections.swift */; };
+		FA87F18323C46B8900BB7CFD /* LearnWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F18223C46B8900BB7CFD /* LearnWordsTableViewController.swift */; };
 		FAC5370B23B7EBBC00DCFD3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5370A23B7EBBC00DCFD3C /* AppDelegate.swift */; };
 		FAC5370D23B7EBBC00DCFD3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5370C23B7EBBC00DCFD3C /* SceneDelegate.swift */; };
-		FAC5370F23B7EBBC00DCFD3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5370E23B7EBBC00DCFD3C /* ViewController.swift */; };
 		FAC5371223B7EBBC00DCFD3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC5371023B7EBBC00DCFD3C /* Main.storyboard */; };
 		FAC5371523B7EBBC00DCFD3C /* Kop_Soz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAC5371323B7EBBC00DCFD3C /* Kop_Soz.xcdatamodeld */; };
 		FAC5371723B7EBBD00DCFD3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC5371623B7EBBD00DCFD3C /* Assets.xcassets */; };
 		FAC5371A23B7EBBD00DCFD3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC5371823B7EBBD00DCFD3C /* LaunchScreen.storyboard */; };
+		FAC5372223B7EE2900DCFD3C /* CollectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5372123B7EE2900DCFD3C /* CollectionsTableViewController.swift */; };
+		FAC5372623B7F37600DCFD3C /* CollectionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5372523B7F37600DCFD3C /* CollectionsTableViewCell.swift */; };
+		FAC5372823B7FB5800DCFD3C /* WordsInCollectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5372723B7FB5800DCFD3C /* WordsInCollectionTableViewController.swift */; };
+		FAC5372D23B7FE9F00DCFD3C /* WordsInCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5372C23B7FE9F00DCFD3C /* WordsInCollectionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA87F17C23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordToAddTableViewController.swift; sourceTree = "<group>"; };
+		FA87F17E23BABF1A00BB7CFD /* NewSectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSectionTableViewController.swift; sourceTree = "<group>"; };
+		FA87F18023C4599800BB7CFD /* AllCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollections.swift; sourceTree = "<group>"; };
+		FA87F18223C46B8900BB7CFD /* LearnWordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnWordsTableViewController.swift; sourceTree = "<group>"; };
 		FAC5370723B7EBBC00DCFD3C /* Kop Soz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kop Soz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC5370A23B7EBBC00DCFD3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC5370C23B7EBBC00DCFD3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAC5370E23B7EBBC00DCFD3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAC5371123B7EBBC00DCFD3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAC5371423B7EBBC00DCFD3C /* Kop_Soz.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Kop_Soz.xcdatamodel; sourceTree = "<group>"; };
 		FAC5371623B7EBBD00DCFD3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC5371923B7EBBD00DCFD3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAC5371B23B7EBBD00DCFD3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAC5372123B7EE2900DCFD3C /* CollectionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsTableViewController.swift; sourceTree = "<group>"; };
+		FAC5372523B7F37600DCFD3C /* CollectionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsTableViewCell.swift; sourceTree = "<group>"; };
+		FAC5372723B7FB5800DCFD3C /* WordsInCollectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsInCollectionTableViewController.swift; sourceTree = "<group>"; };
+		FAC5372C23B7FE9F00DCFD3C /* WordsInCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsInCollectionTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +74,37 @@
 			children = (
 				FAC5370A23B7EBBC00DCFD3C /* AppDelegate.swift */,
 				FAC5370C23B7EBBC00DCFD3C /* SceneDelegate.swift */,
-				FAC5370E23B7EBBC00DCFD3C /* ViewController.swift */,
 				FAC5371023B7EBBC00DCFD3C /* Main.storyboard */,
 				FAC5371623B7EBBD00DCFD3C /* Assets.xcassets */,
 				FAC5371823B7EBBD00DCFD3C /* LaunchScreen.storyboard */,
 				FAC5371B23B7EBBD00DCFD3C /* Info.plist */,
 				FAC5371323B7EBBC00DCFD3C /* Kop_Soz.xcdatamodeld */,
+				FAC5372A23B7FE6500DCFD3C /* Cells */,
+				FAC5372923B7FE5A00DCFD3C /* Controllers */,
+				FA87F18023C4599800BB7CFD /* AllCollections.swift */,
 			);
 			path = "Kop Soz";
+			sourceTree = "<group>";
+		};
+		FAC5372923B7FE5A00DCFD3C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5372123B7EE2900DCFD3C /* CollectionsTableViewController.swift */,
+				FAC5372723B7FB5800DCFD3C /* WordsInCollectionTableViewController.swift */,
+				FA87F17C23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift */,
+				FA87F17E23BABF1A00BB7CFD /* NewSectionTableViewController.swift */,
+				FA87F18223C46B8900BB7CFD /* LearnWordsTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FAC5372A23B7FE6500DCFD3C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5372523B7F37600DCFD3C /* CollectionsTableViewCell.swift */,
+				FAC5372C23B7FE9F00DCFD3C /* WordsInCollectionTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +178,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC5370F23B7EBBC00DCFD3C /* ViewController.swift in Sources */,
 				FAC5371523B7EBBC00DCFD3C /* Kop_Soz.xcdatamodeld in Sources */,
+				FA87F18123C4599800BB7CFD /* AllCollections.swift in Sources */,
 				FAC5370B23B7EBBC00DCFD3C /* AppDelegate.swift in Sources */,
 				FAC5370D23B7EBBC00DCFD3C /* SceneDelegate.swift in Sources */,
+				FA87F17F23BABF1A00BB7CFD /* NewSectionTableViewController.swift in Sources */,
+				FAC5372D23B7FE9F00DCFD3C /* WordsInCollectionTableViewCell.swift in Sources */,
+				FA87F17D23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift in Sources */,
+				FAC5372223B7EE2900DCFD3C /* CollectionsTableViewController.swift in Sources */,
+				FAC5372823B7FB5800DCFD3C /* WordsInCollectionTableViewController.swift in Sources */,
+				FA87F18323C46B8900BB7CFD /* LearnWordsTableViewController.swift in Sources */,
+				FAC5372623B7F37600DCFD3C /* CollectionsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
