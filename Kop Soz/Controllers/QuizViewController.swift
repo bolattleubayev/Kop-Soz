@@ -24,6 +24,8 @@ class QuizViewController: UIViewController {
     var collectionIndex: Int?
     private var currentWord = 0
     
+    @IBOutlet weak var cardView: UIView!
+    
     @IBOutlet weak var wordLabel: UILabel! {
         didSet {
             wordLabel.text = wordCollections?.collections[collectionIndex!].words[currentWord].wordItself
@@ -33,14 +35,28 @@ class QuizViewController: UIViewController {
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         if currentWord != (wordCollections?.collections[collectionIndex!].words.count)! - 1 {
             currentWord += 1
-            wordLabel.text = wordCollections?.collections[collectionIndex!].words[currentWord].wordItself
+            UIView.transition(
+            with: cardView,
+            duration: 0.6,
+            options: [.transitionFlipFromLeft],
+            animations: {
+                self.wordLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordItself
+            },
+            completion: nil)
         }
     }
     
     @IBAction func previousButtonPressed(_ sender: Any) {
         if currentWord != 0 {
             currentWord -= 1
-            wordLabel.text = wordCollections?.collections[collectionIndex!].words[currentWord].wordItself
+            UIView.transition(
+            with: cardView,
+            duration: 0.6,
+            options: [.transitionFlipFromRight],
+            animations: {
+                self.wordLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordItself
+            },
+            completion: nil)
         }
     }
     

@@ -207,6 +207,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="BQR-rA-P2W"/>
                     <connections>
+                        <outlet property="cardView" destination="HEl-RW-hyL" id="qIg-qj-700"/>
                         <outlet property="descriptionLabel" destination="Qga-Mc-Cgy" id="hOh-Al-jlh"/>
                         <outlet property="wordLabel" destination="tRq-IO-edt" id="gUW-mW-i0k"/>
                     </connections>
@@ -724,6 +725,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7A7-Rd-Yxk"/>
                     <connections>
+                        <outlet property="cardView" destination="d1i-Vz-dad" id="6RM-Wj-e4p"/>
                         <outlet property="wordLabel" destination="CcR-RD-Asc" id="hF2-AR-Lot"/>
                     </connections>
                 </viewController>
