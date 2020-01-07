@@ -37,8 +37,6 @@ class WordsInCollectionTableViewController: UITableViewController {
     
     @objc func loadList(notification: NSNotification){
         //load data here
-        print(wordCollections?.collections[collectionIndex!].words.count)
-        
         if let url = try? FileManager.default.url(
             for: .documentDirectory,
             in: .userDomainMask,

@@ -14,6 +14,10 @@ class LearnWordsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.tintColor = .black
     }
     
     var wordCollections: AllCollections?
@@ -24,13 +28,17 @@ class LearnWordsViewController: UIViewController {
     
     @IBOutlet weak var wordLabel: UILabel! {
         didSet {
-            wordLabel.text = wordCollections?.collections[collectionIndex!].words[currentWord].wordItself
+            if wordCollections?.collections[collectionIndex!].words.count != 0 {
+                wordLabel.text = wordCollections?.collections[collectionIndex!].words[currentWord].wordItself
+            }
         }
     }
     
     @IBOutlet weak var descriptionLabel: UITextView! {
         didSet {
-            descriptionLabel.text = wordCollections?.collections[collectionIndex!].words[currentWord].wordDescription
+            if wordCollections?.collections[collectionIndex!].words.count != 0 {
+                descriptionLabel.text = wordCollections?.collections[collectionIndex!].words[currentWord].wordDescription
+            }
         }
     }
     

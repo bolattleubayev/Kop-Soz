@@ -66,7 +66,7 @@
             </objects>
             <point key="canvasLocation" x="1223.1884057971015" y="55.580357142857139"/>
         </scene>
-        <!--Learn Words Table View Controller-->
+        <!--Learn-->
         <scene sceneID="M2v-O8-024">
             <objects>
                 <tableViewController id="z8l-xl-84i" customClass="LearnWordsTableViewController" customModule="Kop_Soz" customModuleProvider="target" sceneMemberID="viewController">
@@ -112,7 +112,7 @@
                             <outlet property="delegate" destination="z8l-xl-84i" id="JI4-q6-Vxb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="hV1-9V-8kJ"/>
+                    <navigationItem key="navigationItem" title="Learn" id="hV1-9V-8kJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IM2-L7-SgL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -569,6 +569,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="VJZ-CS-hU1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ygq-D4-c5d">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -601,7 +602,7 @@
             </objects>
             <point key="canvasLocation" x="311.59420289855075" y="912.72321428571422"/>
         </scene>
-        <!--Quiz Table View Controller-->
+        <!--Quiz-->
         <scene sceneID="9gQ-GE-lfq">
             <objects>
                 <tableViewController id="GnN-hK-cVm" customClass="QuizTableViewController" customModule="Kop_Soz" customModuleProvider="target" sceneMemberID="viewController">
@@ -642,7 +643,7 @@
                             <outlet property="delegate" destination="GnN-hK-cVm" id="3Lf-o8-q0F"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gy2-Ra-lg8"/>
+                    <navigationItem key="navigationItem" title="Quiz" id="gy2-Ra-lg8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mhm-gJ-cwv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

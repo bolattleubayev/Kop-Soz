@@ -48,7 +48,6 @@ class NewSectionTableViewController: UITableViewController, UITextFieldDelegate,
             // notification to updtate table view before dismiss
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadSections"), object: nil)
             
-            print(wordCollections)
             dismiss(animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Oops", message: "We can't proceed because section name is missing", preferredStyle: .alert)

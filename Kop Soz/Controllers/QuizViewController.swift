@@ -14,6 +14,10 @@ class QuizViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.tintColor = .black
     }
     
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
@@ -28,7 +32,9 @@ class QuizViewController: UIViewController {
     
     @IBOutlet weak var wordLabel: UILabel! {
         didSet {
-            wordLabel.text = wordCollections?.collections[collectionIndex!].words[currentWord].wordItself
+            if wordCollections?.collections[collectionIndex!].words.count != 0 {
+                wordLabel.text = wordCollections?.collections[collectionIndex!].words[currentWord].wordItself
+            }
         }
     }
     
