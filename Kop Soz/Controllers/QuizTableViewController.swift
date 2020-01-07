@@ -1,5 +1,5 @@
 //
-//  LearnWordsTableViewController.swift
+//  QuizTableViewController.swift
 //  Kop Soz
 //
 //  Created by macbook on 1/7/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LearnWordsTableViewController: UITableViewController {
+class QuizTableViewController: UITableViewController {
     
     var wordCollections = AllCollections()
     
@@ -39,7 +39,7 @@ class LearnWordsTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     // MARK: - Table view data source
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -49,10 +49,9 @@ class LearnWordsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return wordCollections.collections.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "LearnCell"
+        let cellIdentifier = "QuizCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CollectionsTableViewCell
         
         // Configure the cell...
@@ -61,7 +60,15 @@ class LearnWordsTableViewController: UITableViewController {
         
         return cell
     }
-    
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -102,13 +109,14 @@ class LearnWordsTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "GoToSection" {
+        if segue.identifier == "GoToSectionForQuiz" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let destinationController = segue.destination as! LearnWordsViewController
+                let destinationController = segue.destination as! QuizViewController
                 destinationController.wordCollections = wordCollections
                 destinationController.collectionIndex = indexPath.row
                 //destinationController.wordDescriptions = wordsInCollectionDescriptions[indexPath.row]
             }
-        } 
+        }
     }
+
 }

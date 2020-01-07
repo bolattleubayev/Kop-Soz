@@ -11,6 +11,10 @@
 		FA87F17F23BABF1A00BB7CFD /* NewSectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F17E23BABF1A00BB7CFD /* NewSectionTableViewController.swift */; };
 		FA87F18123C4599800BB7CFD /* AllCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F18023C4599800BB7CFD /* AllCollections.swift */; };
 		FA87F18323C46B8900BB7CFD /* LearnWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F18223C46B8900BB7CFD /* LearnWordsTableViewController.swift */; };
+		FA87F18523C472E100BB7CFD /* LearnWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F18423C472E100BB7CFD /* LearnWordsViewController.swift */; };
+		FA87F18723C477E600BB7CFD /* QuizTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F18623C477E600BB7CFD /* QuizTableViewController.swift */; };
+		FA87F18923C4788D00BB7CFD /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F18823C4788D00BB7CFD /* QuizViewController.swift */; };
+		FA87F18B23C479AB00BB7CFD /* QuizDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F18A23C479AB00BB7CFD /* QuizDescriptionViewController.swift */; };
 		FAC5370B23B7EBBC00DCFD3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5370A23B7EBBC00DCFD3C /* AppDelegate.swift */; };
 		FAC5370D23B7EBBC00DCFD3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5370C23B7EBBC00DCFD3C /* SceneDelegate.swift */; };
 		FAC5371223B7EBBC00DCFD3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC5371023B7EBBC00DCFD3C /* Main.storyboard */; };
@@ -28,6 +32,10 @@
 		FA87F17E23BABF1A00BB7CFD /* NewSectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSectionTableViewController.swift; sourceTree = "<group>"; };
 		FA87F18023C4599800BB7CFD /* AllCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollections.swift; sourceTree = "<group>"; };
 		FA87F18223C46B8900BB7CFD /* LearnWordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnWordsTableViewController.swift; sourceTree = "<group>"; };
+		FA87F18423C472E100BB7CFD /* LearnWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnWordsViewController.swift; sourceTree = "<group>"; };
+		FA87F18623C477E600BB7CFD /* QuizTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTableViewController.swift; sourceTree = "<group>"; };
+		FA87F18823C4788D00BB7CFD /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		FA87F18A23C479AB00BB7CFD /* QuizDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDescriptionViewController.swift; sourceTree = "<group>"; };
 		FAC5370723B7EBBC00DCFD3C /* Kop Soz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kop Soz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC5370A23B7EBBC00DCFD3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC5370C23B7EBBC00DCFD3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +102,10 @@
 				FA87F17C23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift */,
 				FA87F17E23BABF1A00BB7CFD /* NewSectionTableViewController.swift */,
 				FA87F18223C46B8900BB7CFD /* LearnWordsTableViewController.swift */,
+				FA87F18423C472E100BB7CFD /* LearnWordsViewController.swift */,
+				FA87F18623C477E600BB7CFD /* QuizTableViewController.swift */,
+				FA87F18823C4788D00BB7CFD /* QuizViewController.swift */,
+				FA87F18A23C479AB00BB7CFD /* QuizDescriptionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -179,14 +191,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAC5371523B7EBBC00DCFD3C /* Kop_Soz.xcdatamodeld in Sources */,
+				FA87F18923C4788D00BB7CFD /* QuizViewController.swift in Sources */,
 				FA87F18123C4599800BB7CFD /* AllCollections.swift in Sources */,
 				FAC5370B23B7EBBC00DCFD3C /* AppDelegate.swift in Sources */,
 				FAC5370D23B7EBBC00DCFD3C /* SceneDelegate.swift in Sources */,
 				FA87F17F23BABF1A00BB7CFD /* NewSectionTableViewController.swift in Sources */,
+				FA87F18723C477E600BB7CFD /* QuizTableViewController.swift in Sources */,
 				FAC5372D23B7FE9F00DCFD3C /* WordsInCollectionTableViewCell.swift in Sources */,
 				FA87F17D23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift in Sources */,
 				FAC5372223B7EE2900DCFD3C /* CollectionsTableViewController.swift in Sources */,
 				FAC5372823B7FB5800DCFD3C /* WordsInCollectionTableViewController.swift in Sources */,
+				FA87F18B23C479AB00BB7CFD /* QuizDescriptionViewController.swift in Sources */,
+				FA87F18523C472E100BB7CFD /* LearnWordsViewController.swift in Sources */,
 				FA87F18323C46B8900BB7CFD /* LearnWordsTableViewController.swift in Sources */,
 				FAC5372623B7F37600DCFD3C /* CollectionsTableViewCell.swift in Sources */,
 			);

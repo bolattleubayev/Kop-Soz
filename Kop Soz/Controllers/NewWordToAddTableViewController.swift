@@ -28,8 +28,6 @@ class NewWordToAddTableViewController: UITableViewController, UITextFieldDelegat
         }
     }
     
-    @IBOutlet weak var wordPhoto: UIImageView!
-    
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         if wordItselfTextField.text != "", wordDescriptionTextView.text != "" {
             
@@ -90,69 +88,6 @@ class NewWordToAddTableViewController: UITableViewController, UITextFieldDelegat
     }
     // MARK: - Table view data source
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            wordPhoto.image = selectedImage
-            wordPhoto.contentMode = .scaleAspectFill
-            wordPhoto.clipsToBounds = true
-        }
-        
-        let leadingConstraint = NSLayoutConstraint(item: wordPhoto, attribute: .leading, relatedBy: .equal, toItem: wordPhoto.superview, attribute: .leading, multiplier: 1, constant: 0)
-        leadingConstraint.isActive = true
-        
-        let trailingConstraint = NSLayoutConstraint(item: wordPhoto, attribute: .trailing, relatedBy: .equal, toItem: wordPhoto.superview, attribute: .trailing, multiplier: 1, constant: 0)
-        trailingConstraint.isActive = true
-        
-        let topConstraint = NSLayoutConstraint(item: wordPhoto, attribute: .top, relatedBy: .equal, toItem: wordPhoto.superview, attribute: .top, multiplier: 1, constant: 0)
-        topConstraint.isActive = true
-        
-        let bottomConstraint = NSLayoutConstraint(item: wordPhoto, attribute: .bottom, relatedBy: .equal, toItem: wordPhoto.superview, attribute: .bottom, multiplier: 1, constant: 0)
-        bottomConstraint.isActive = true
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            
-            let photoSourceRequestController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-            
-            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {
-                (action) in
-                
-                // you need to modify privacy reason in Info.plist to be able to request media data NSPhotoLibraryUsageDescription and NSCameraUsageDescription
-                
-                if UIImagePickerController.isSourceTypeAvailable(.camera) { // checking if media type is available as user may restrict access
-                    let imagePicker = UIImagePickerController()
-                    imagePicker.delegate = self
-                    imagePicker.allowsEditing = false
-                    imagePicker.sourceType = .camera
-                    
-                    self.present(imagePicker, animated: true, completion: nil)
-                }
-            })
-            
-            let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: {
-                (action) in
-                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) { // checking if media type is available as user may restrict access
-                    let imagePicker = UIImagePickerController()
-                    imagePicker.delegate = self
-                    imagePicker.allowsEditing = false
-                    imagePicker.sourceType = .photoLibrary
-                    
-                    self.present(imagePicker, animated: true, completion: nil)
-                }
-            })
-            
-            photoSourceRequestController.addAction(cameraAction)
-            photoSourceRequestController.addAction(photoLibraryAction)
-            
-            present(photoSourceRequestController, animated: true, completion: nil)
-            
-        }
-        
-    }
     
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
