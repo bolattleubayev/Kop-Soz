@@ -14,7 +14,7 @@ class QuizViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
@@ -39,7 +39,7 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        if currentWord != (wordCollections?.collections[collectionIndex!].words.count)! - 1 {
+        if currentWord != (wordCollections?.collections[collectionIndex!].words.count)! - 1, (wordCollections?.collections[collectionIndex!].words.count)! != 0 {
             currentWord += 1
             UIView.transition(
             with: cardView,
@@ -73,7 +73,7 @@ class QuizViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "ShowDefinition" {
+        if segue.identifier == "ShowDefinition", (wordCollections?.collections[collectionIndex!].words.count)! > 0 {
             let destinationController = segue.destination as! QuizDescriptionViewController
             
             destinationController.wordDescriptionText = wordCollections?.collections[collectionIndex!].words[currentWord].wordDescription

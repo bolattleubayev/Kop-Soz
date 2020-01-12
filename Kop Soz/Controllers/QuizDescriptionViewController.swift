@@ -18,7 +18,7 @@ class QuizDescriptionViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         wordDescription.text = wordDescriptionText
-        
+        navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
     }
     

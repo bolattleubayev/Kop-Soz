@@ -14,6 +14,7 @@ class LearnWordsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationItem.largeTitleDisplayMode = .never
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -44,7 +45,7 @@ class LearnWordsViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        if currentWord != (wordCollections?.collections[collectionIndex!].words.count)! - 1 {
+        if currentWord != (wordCollections?.collections[collectionIndex!].words.count)! - 1, (wordCollections?.collections[collectionIndex!].words.count)! != 0 {
             currentWord += 1
             
             UIView.transition(
