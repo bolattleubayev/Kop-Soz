@@ -75,6 +75,8 @@ class NewWordToAddTableViewController: UITableViewController, UITextFieldDelegat
         // Configure Navigation Bar Appearance
         //navigationController?.navigationBar.tintColor = .white
         //navigationController?.navigationBar.shadowImage = UIImage()
+        
+        navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
     }
 
     

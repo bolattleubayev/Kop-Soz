@@ -66,6 +66,8 @@ class NewSectionTableViewController: UITableViewController, UITextFieldDelegate,
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
     }
 
     // MARK: - Table view data source

@@ -17,6 +17,7 @@ class WordsInCollectionTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBOutlet var emptyWordView: UIView!
     
     
     
@@ -30,9 +31,20 @@ class WordsInCollectionTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
+        navigationController?.hidesBarsOnSwipe = true
+        
         
         // updating after popover
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        
+        tableView.backgroundView = emptyWordView
+        tableView.backgroundView?.isHidden = true
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        //navigationController?.navigationBar.tintColor = .black
+        navigationItem.title = wordCollections?.collections[collectionIndex!].collectionName
     }
     
     @objc func loadList(notification: NSNotification){
@@ -55,6 +67,13 @@ class WordsInCollectionTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        if (wordCollections?.collections[collectionIndex!].words.count)! > 0 {
+            tableView.backgroundView?.isHidden = true
+            tableView.separatorStyle = .singleLine
+        } else {
+            tableView.backgroundView?.isHidden = false
+            tableView.separatorStyle = .none
+        }
         return 1
     }
 

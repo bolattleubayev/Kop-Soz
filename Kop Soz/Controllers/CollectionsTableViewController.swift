@@ -16,6 +16,7 @@ class CollectionsTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBOutlet var emptyCollectionView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +27,13 @@ class CollectionsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.foregroundColor: UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)]
+        navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
         NotificationCenter.default.addObserver(self, selector: #selector(loadSections), name: NSNotification.Name(rawValue: "loadSections"), object: nil)
+        
+        // Prepare the empty view
+        tableView.backgroundView = emptyCollectionView
+        tableView.backgroundView?.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +72,13 @@ class CollectionsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        if wordCollections.collections.count > 0 {
+            tableView.backgroundView?.isHidden = true
+            tableView.separatorStyle = .singleLine
+        } else {
+            tableView.backgroundView?.isHidden = false
+            tableView.separatorStyle = .none
+        }
         return 1
     }
 
