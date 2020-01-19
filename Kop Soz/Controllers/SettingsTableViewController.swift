@@ -27,7 +27,7 @@ class SettingsTableViewController: UITableViewController {
             contactsLabel.text = "Контакттар"
             languageLabel.text = "Тіл"
         } else if defaults.integer(forKey: "language") == 1 {
-            navigationItem.title = "Натройки"
+            navigationItem.title = "Наcтройки"
             aboutLabel.text = "О программе"
             contactsLabel.text = "Контакты"
             languageLabel.text = "Язык"
