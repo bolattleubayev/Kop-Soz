@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA587C3C23D4CB30004F4C1B /* EditSectionNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA587C3B23D4CB30004F4C1B /* EditSectionNameTableViewController.swift */; };
+		FA587C3E23D4D7AA004F4C1B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA587C3D23D4D7AA004F4C1B /* SettingsTableViewController.swift */; };
 		FA87F17D23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F17C23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift */; };
 		FA87F17F23BABF1A00BB7CFD /* NewSectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F17E23BABF1A00BB7CFD /* NewSectionTableViewController.swift */; };
 		FA87F18123C4599800BB7CFD /* AllCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F18023C4599800BB7CFD /* AllCollections.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA587C3B23D4CB30004F4C1B /* EditSectionNameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSectionNameTableViewController.swift; sourceTree = "<group>"; };
+		FA587C3D23D4D7AA004F4C1B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		FA87F17C23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordToAddTableViewController.swift; sourceTree = "<group>"; };
 		FA87F17E23BABF1A00BB7CFD /* NewSectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSectionTableViewController.swift; sourceTree = "<group>"; };
 		FA87F18023C4599800BB7CFD /* AllCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollections.swift; sourceTree = "<group>"; };
@@ -99,13 +103,15 @@
 			children = (
 				FAC5372123B7EE2900DCFD3C /* CollectionsTableViewController.swift */,
 				FAC5372723B7FB5800DCFD3C /* WordsInCollectionTableViewController.swift */,
-				FA87F17C23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift */,
 				FA87F17E23BABF1A00BB7CFD /* NewSectionTableViewController.swift */,
+				FA587C3B23D4CB30004F4C1B /* EditSectionNameTableViewController.swift */,
+				FA87F17C23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift */,
 				FA87F18223C46B8900BB7CFD /* LearnWordsTableViewController.swift */,
 				FA87F18423C472E100BB7CFD /* LearnWordsViewController.swift */,
 				FA87F18623C477E600BB7CFD /* QuizTableViewController.swift */,
 				FA87F18823C4788D00BB7CFD /* QuizViewController.swift */,
 				FA87F18A23C479AB00BB7CFD /* QuizDescriptionViewController.swift */,
+				FA587C3D23D4D7AA004F4C1B /* SettingsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -196,6 +202,8 @@
 				FAC5370B23B7EBBC00DCFD3C /* AppDelegate.swift in Sources */,
 				FAC5370D23B7EBBC00DCFD3C /* SceneDelegate.swift in Sources */,
 				FA87F17F23BABF1A00BB7CFD /* NewSectionTableViewController.swift in Sources */,
+				FA587C3E23D4D7AA004F4C1B /* SettingsTableViewController.swift in Sources */,
+				FA587C3C23D4CB30004F4C1B /* EditSectionNameTableViewController.swift in Sources */,
 				FA87F18723C477E600BB7CFD /* QuizTableViewController.swift in Sources */,
 				FAC5372D23B7FE9F00DCFD3C /* WordsInCollectionTableViewCell.swift in Sources */,
 				FA87F17D23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift in Sources */,

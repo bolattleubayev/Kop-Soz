@@ -11,6 +11,7 @@ import UIKit
 class CollectionsTableViewController: UITableViewController {
     
     var wordCollections = AllCollections()
+    let defaults = UserDefaults.standard
     
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
@@ -19,13 +20,6 @@ class CollectionsTableViewController: UITableViewController {
     @IBOutlet var emptyCollectionView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.foregroundColor: UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)]
         navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
@@ -38,7 +32,7 @@ class CollectionsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print("default:\(defaults.integer(forKey: "language"))")
         if let url = try? FileManager.default.url(
             for: .documentDirectory,
             in: .userDomainMask,
@@ -185,7 +179,7 @@ class CollectionsTableViewController: UITableViewController {
         } else if segue.identifier == "AddNewSection" {
             let destinationController = segue.destination.contents as! NewSectionTableViewController
             destinationController.wordCollections = wordCollections
-        }
+        } 
     }
     
 

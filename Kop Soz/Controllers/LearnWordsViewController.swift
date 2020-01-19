@@ -28,6 +28,13 @@ class LearnWordsViewController: UIViewController {
     
     @IBOutlet weak var cardView: UIView!
     
+    @IBOutlet weak var countLabel: UILabel! {
+        didSet {
+            if wordCollections?.collections[collectionIndex!].words.count != 0 {
+                countLabel.text = "\(currentWord + 1)/\( wordCollections!.collections[collectionIndex!].words.count)"
+            }
+        }
+    }
     @IBOutlet weak var wordLabel: UILabel! {
         didSet {
             if wordCollections?.collections[collectionIndex!].words.count != 0 {
@@ -55,6 +62,20 @@ class LearnWordsViewController: UIViewController {
             animations: {
                 self.wordLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordItself
                 self.descriptionLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordDescription
+                self.countLabel.text = "\(self.currentWord + 1)/\( self.wordCollections!.collections[self.collectionIndex!].words.count)"
+            },
+            completion: nil)
+        } else if currentWord == (wordCollections?.collections[collectionIndex!].words.count)! - 1{
+            currentWord = 0
+            
+            UIView.transition(
+            with: cardView,
+            duration: 0.6,
+            options: [.transitionFlipFromLeft],
+            animations: {
+                self.wordLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordItself
+                self.descriptionLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordDescription
+                self.countLabel.text = "\(self.currentWord + 1)/\( self.wordCollections!.collections[self.collectionIndex!].words.count)"
             },
             completion: nil)
         }
@@ -70,6 +91,19 @@ class LearnWordsViewController: UIViewController {
             animations: {
                 self.wordLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordItself
                 self.descriptionLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordDescription
+                self.countLabel.text = "\(self.currentWord + 1)/\( self.wordCollections!.collections[self.collectionIndex!].words.count)"
+            },
+            completion: nil)
+        } else if currentWord == 0, (wordCollections?.collections[collectionIndex!].words.count)! != 0 {
+            currentWord = (wordCollections?.collections[collectionIndex!].words.count)! - 1
+            UIView.transition(
+            with: cardView,
+            duration: 0.6,
+            options: [.transitionFlipFromRight],
+            animations: {
+                self.wordLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordItself
+                self.descriptionLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordDescription
+                self.countLabel.text = "\(self.currentWord + 1)/\( self.wordCollections!.collections[self.collectionIndex!].words.count)"
             },
             completion: nil)
         }
