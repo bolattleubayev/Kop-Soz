@@ -14,9 +14,41 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.foregroundColor: UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)]
+        navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
     }
     
-    @IBOutlet weak var languageSegmentedControlOutlet: UISegmentedControl!
+    override func viewWillAppear(_ animated: Bool) {
+        languageSegmentedControlOutlet.selectedSegmentIndex = defaults.integer(forKey: "language")
+        if defaults.integer(forKey: "language") == 0 {
+            navigationItem.title = "Теңшеулер"
+            aboutLabel.text = "Бағдарлама туралы"
+            contactsLabel.text = "Контакттар"
+            languageLabel.text = "Тіл"
+        } else if defaults.integer(forKey: "language") == 1 {
+            navigationItem.title = "Натройки"
+            aboutLabel.text = "О программе"
+            contactsLabel.text = "Контакты"
+            languageLabel.text = "Язык"
+        } else {
+            navigationItem.title = "Settings"
+            aboutLabel.text = "About"
+            contactsLabel.text = "Contact us"
+            languageLabel.text = "Language"
+        }
+    }
+    
+    
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var aboutLabel: UILabel!
+    @IBOutlet weak var contactsLabel: UILabel!
+    
+    @IBOutlet weak var languageSegmentedControlOutlet: UISegmentedControl! {
+        didSet {
+            languageSegmentedControlOutlet.selectedSegmentIndex = defaults.integer(forKey: "language")
+        }
+    }
     
     
     @IBAction func languageChanged(_ sender: UISegmentedControl) {

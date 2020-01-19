@@ -12,6 +12,10 @@ class NewWordToAddTableViewController: UITableViewController, UITextFieldDelegat
     
     var wordCollections: AllCollections?
     var collectionIndex: Int?
+    let defaults = UserDefaults.standard
+    
+    @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var wordItselfTextField: UITextField! {
         didSet {
@@ -78,8 +82,23 @@ class NewWordToAddTableViewController: UITableViewController, UITextFieldDelegat
         
         navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
     }
-
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if defaults.integer(forKey: "language") == 0 {
+            navigationItem.title = "Жаңа сөзді қосу"
+            wordLabel.text = "Сөз"
+            descriptionLabel.text = "Сипаттама"
+        } else if defaults.integer(forKey: "language") == 1 {
+            navigationItem.title = "Добавить новое слово"
+            wordLabel.text = "Слово"
+            descriptionLabel.text = "Описание"
+        } else {
+            navigationItem.title = "Add new word"
+            wordLabel.text = "Word"
+            descriptionLabel.text = "Description"
+        }
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextTextField = view.viewWithTag(textField.tag + 1) {
             textField.resignFirstResponder()

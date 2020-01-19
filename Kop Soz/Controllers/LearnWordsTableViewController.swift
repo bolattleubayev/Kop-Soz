@@ -11,15 +11,10 @@ import UIKit
 class LearnWordsTableViewController: UITableViewController {
     
     var wordCollections = AllCollections()
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.foregroundColor: UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)]
         navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
@@ -32,6 +27,17 @@ class LearnWordsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if defaults.integer(forKey: "language") == 0 {
+            self.title = "Оқу"
+            navigationItem.title = "Оқу"
+        } else if defaults.integer(forKey: "language") == 1 {
+            self.title = "Учить"
+            navigationItem.title = "Учить"
+        } else {
+            self.title = "Learn"
+            navigationItem.title = "Learn"
+        }
         
         if let url = try? FileManager.default.url(
             for: .documentDirectory,

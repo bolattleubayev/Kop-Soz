@@ -20,10 +20,24 @@ class QuizViewController: UIViewController {
         navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if wordCollections?.collections[collectionIndex!].words.count == 0 {
+            if defaults.integer(forKey: "language") == 0 {
+                wordLabel.text = "Сөздер жоқ"
+            } else if defaults.integer(forKey: "language") == 1 {
+                wordLabel.text = "Нет слов"
+            } else {
+                wordLabel.text = "No words"
+            }
+        }
+    }
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
     
+    let defaults = UserDefaults.standard
     var wordCollections: AllCollections?
     var collectionIndex: Int?
     private var currentWord = 0

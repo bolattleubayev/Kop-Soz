@@ -12,6 +12,9 @@ class EditSectionNameTableViewController: UITableViewController, UITextFieldDele
     
     var wordCollections: AllCollections?
     var collectionIndex: Int?
+    let defaults = UserDefaults.standard
+    
+    @IBOutlet weak var sectionRenameLabel: UILabel!
     
     @IBOutlet weak var editedSectionNameTextField: UITextField! {
         didSet {
@@ -57,5 +60,15 @@ class EditSectionNameTableViewController: UITableViewController, UITextFieldDele
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if defaults.integer(forKey: "language") == 0 {
+            sectionRenameLabel.text = "Секция атын өзгерту"
+        } else if defaults.integer(forKey: "language") == 1 {
+            sectionRenameLabel.text = "Переименовать секцию"
+        } else {
+            sectionRenameLabel.text = "Rename section"
+        }
     }
 }

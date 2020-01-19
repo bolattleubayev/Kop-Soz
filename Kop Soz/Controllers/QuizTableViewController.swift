@@ -11,7 +11,7 @@ import UIKit
 class QuizTableViewController: UITableViewController {
     
     var wordCollections = AllCollections()
-    
+    let defaults = UserDefaults.standard
     
     @IBOutlet var emptyQuizView: UIView!
     
@@ -34,6 +34,17 @@ class QuizTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if defaults.integer(forKey: "language") == 0 {
+            self.title = "Тест"
+            navigationItem.title = "Тест"
+        } else if defaults.integer(forKey: "language") == 1 {
+            self.title = "Тест"
+            navigationItem.title = "Тест"
+        } else {
+            self.title = "Test"
+            navigationItem.title = "Test"
+        }
         
         if let url = try? FileManager.default.url(
             for: .documentDirectory,

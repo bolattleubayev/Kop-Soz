@@ -11,6 +11,7 @@ import UIKit
 class QuizDescriptionViewController: UIViewController {
     
     var wordDescriptionText: String?
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +21,21 @@ class QuizDescriptionViewController: UIViewController {
         wordDescription.text = wordDescriptionText
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
+        
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        if defaults.integer(forKey: "language") == 0 {
+            closeButtonOutlet.setTitle("Жабу", for: [])
+        } else if defaults.integer(forKey: "language") == 1 {
+            closeButtonOutlet.setTitle("Закрыть", for: [])
+        } else {
+            closeButtonOutlet.setTitle("Close", for: [])
+        }
+    }
+    
+    @IBOutlet weak var closeButtonOutlet: UIButton!
+    
     @IBOutlet weak var wordDescription: UITextView!
     /*
     // MARK: - Navigation

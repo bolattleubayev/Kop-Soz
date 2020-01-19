@@ -30,9 +30,22 @@ class CollectionsTableViewController: UITableViewController {
         tableView.backgroundView?.isHidden = true
     }
     
+    // MARK: - Outlets
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("default:\(defaults.integer(forKey: "language"))")
+        
+        if defaults.integer(forKey: "language") == 0 {
+            self.title = "Қосу"
+            navigationItem.title = "Секциялар"
+        } else if defaults.integer(forKey: "language") == 1 {
+            self.title = "Добавить"
+            navigationItem.title = "Секции"
+        } else {
+            self.title = "Add"
+            navigationItem.title = "Sections"
+        }
+        
         if let url = try? FileManager.default.url(
             for: .documentDirectory,
             in: .userDomainMask,

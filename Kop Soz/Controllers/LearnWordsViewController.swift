@@ -22,6 +22,26 @@ class LearnWordsViewController: UIViewController {
         navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if wordCollections?.collections[collectionIndex!].words.count == 0 {
+            if defaults.integer(forKey: "language") == 0 {
+                countLabel.text = "Сан"
+                wordLabel.text = "Сөздерді қосу керек"
+                descriptionLabel.text = "\"Қосу\" секцияда сөздерді қосыңыз"
+            } else if defaults.integer(forKey: "language") == 1 {
+                countLabel.text = "Счёт"
+                wordLabel.text = "Нужно добавить слова"
+                descriptionLabel.text = "Пожалуйста добавьте слова в секции \"Добавить\", чтобы начать их изучать"
+            } else {
+                countLabel.text = "Count"
+                wordLabel.text = "You need to add words"
+                descriptionLabel.text = "Please add words in \"Add\" section to start learning them"
+            }
+        }
+    }
+    
+    let defaults = UserDefaults.standard
     var wordCollections: AllCollections?
     var collectionIndex: Int?
     private var currentWord = 0

@@ -11,6 +11,9 @@ import UIKit
 class NewSectionTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var wordCollections: AllCollections?
+    let defaults = UserDefaults.standard
+    
+    @IBOutlet weak var sectionNameLabel: UILabel!
     
     @IBOutlet weak var sectionNameTextField: UITextField! {
         didSet {
@@ -24,11 +27,6 @@ class NewSectionTableViewController: UITableViewController, UITextFieldDelegate,
             wordCollections!.collections.append(AllCollections.WordCollection(collectionName: sectionNameTextField.text!, words: []))
             
             if let json = wordCollections?.json {
-                        // printing json data
-            //            if let jsonString = String(data: json, encoding: .utf8) {
-            //                print(jsonString)
-            //            }
-                        
                         // writing data to the disc, document directory
                         if let url = try? FileManager.default.url(
                             for: .documentDirectory,
@@ -60,15 +58,16 @@ class NewSectionTableViewController: UITableViewController, UITextFieldDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
         navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
     }
-
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if defaults.integer(forKey: "language") == 0 {
+            sectionNameLabel.text = "Секция аты"
+        } else if defaults.integer(forKey: "language") == 1 {
+            sectionNameLabel.text = "Название секции"
+        } else {
+            sectionNameLabel.text = "Section name"
+        }
+    }
 }
