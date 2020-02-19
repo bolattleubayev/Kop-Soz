@@ -82,7 +82,7 @@ class LearnWordsTableViewController: UITableViewController {
         
         // Configure the cell...
         
-        cell.collectionNameLabel?.text = wordCollections.collections[indexPath.row].collectionName
+        cell.collectionNameTextField.text = wordCollections.collections[indexPath.row].collectionName
         
         return cell
     }

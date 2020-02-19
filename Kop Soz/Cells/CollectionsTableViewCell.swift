@@ -10,7 +10,7 @@ import UIKit
 
 class CollectionsTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var collectionNameLabel: UILabel!
+    @IBOutlet weak var collectionNameTextField: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()

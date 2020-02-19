@@ -174,12 +174,7 @@ class WordsInCollectionTableViewController: UITableViewController {
             let destinationController = segue.destination.contents as! NewWordToAddTableViewController
             destinationController.wordCollections = wordCollections
             destinationController.collectionIndex = collectionIndex
-        } else if segue.identifier == "EditSectionName" {
-            let destinationController = segue.destination.contents as! EditSectionNameTableViewController
-            destinationController.wordCollections = wordCollections
-            destinationController.collectionIndex = collectionIndex
-            
-        }
+        } 
     }
     
 

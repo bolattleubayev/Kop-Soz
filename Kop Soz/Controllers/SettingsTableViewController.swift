@@ -23,17 +23,14 @@ class SettingsTableViewController: UITableViewController {
         languageSegmentedControlOutlet.selectedSegmentIndex = defaults.integer(forKey: "language")
         if defaults.integer(forKey: "language") == 0 {
             navigationItem.title = "Теңшеулер"
-            aboutLabel.text = "Бағдарлама туралы"
             contactsLabel.text = "Контакттар"
             languageLabel.text = "Тіл"
         } else if defaults.integer(forKey: "language") == 1 {
             navigationItem.title = "Наcтройки"
-            aboutLabel.text = "О программе"
             contactsLabel.text = "Контакты"
             languageLabel.text = "Язык"
         } else {
             navigationItem.title = "Settings"
-            aboutLabel.text = "About"
             contactsLabel.text = "Contact us"
             languageLabel.text = "Language"
         }
@@ -41,7 +38,6 @@ class SettingsTableViewController: UITableViewController {
     
     
     @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var aboutLabel: UILabel!
     @IBOutlet weak var contactsLabel: UILabel!
     
     @IBOutlet weak var languageSegmentedControlOutlet: UISegmentedControl! {

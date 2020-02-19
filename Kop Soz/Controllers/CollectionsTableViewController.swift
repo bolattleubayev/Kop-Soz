@@ -12,17 +12,32 @@ class CollectionsTableViewController: UITableViewController {
     
     var wordCollections = AllCollections()
     let defaults = UserDefaults.standard
+    var animatedCellIndecies = [Int]()
     
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet var emptyCollectionView: UIView!
+    
+    
+    @IBAction func addNewSectionButtonTapped(_ sender: UIBarButtonItem) {
+        // Create new collection
+        wordCollections.collections.insert(AllCollections.WordCollection.init(collectionName: "", words: []), at: 0)
+        // Add row
+        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        // Become first respoonder
+        if let newCellTextField = (tableView.visibleCells[0] as! CollectionsTableViewCell).collectionNameTextField {
+            newCellTextField.becomeFirstResponder()
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.foregroundColor: UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)]
-        navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 0.8014437556, blue: 0.004643389955, alpha: 1)]
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.8014437556, blue: 0.004643389955, alpha: 1)
         NotificationCenter.default.addObserver(self, selector: #selector(loadSections), name: NSNotification.Name(rawValue: "loadSections"), object: nil)
         
         // Prepare the empty view
@@ -30,7 +45,6 @@ class CollectionsTableViewController: UITableViewController {
         tableView.backgroundView?.isHidden = true
     }
     
-    // MARK: - Outlets
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -57,6 +71,8 @@ class CollectionsTableViewController: UITableViewController {
             }
         }
     }
+    
+    
     @objc func loadSections(notification: NSNotification){
         //load data here
         print("table reloaded")
@@ -73,6 +89,33 @@ class CollectionsTableViewController: UITableViewController {
         }
         
         self.tableView.reloadData()
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        // If text field changes update values of the model
+        for indexRow in 0..<tableView.visibleCells.count {
+            
+            if let cellText = (tableView.visibleCells[indexRow] as! CollectionsTableViewCell).collectionNameTextField.text {
+                wordCollections.collections[indexRow].collectionName = cellText
+            }
+        }
+        
+        if let json = wordCollections.json {
+            // writing data to the disc, document directory
+            if let url = try? FileManager.default.url(
+                for: .documentDirectory,
+                in: .userDomainMask,
+                appropriateFor: nil,
+                create: true
+                ).appendingPathComponent("Untitled.json"){
+                do {
+                    try json.write(to: url)
+                    print ("saved successfully")
+                } catch let error {
+                    print ("couldn't save \(error)")
+                }
+            }
+        }
     }
     
     // MARK: - Table view data source
@@ -101,7 +144,9 @@ class CollectionsTableViewController: UITableViewController {
         
         // Configure the cell...
         
-        cell.collectionNameLabel?.text = wordCollections.collections[indexPath.row].collectionName
+        cell.collectionNameTextField?.text = wordCollections.collections[indexPath.row].collectionName
+        
+        cell.collectionNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
         return cell
     }
@@ -173,7 +218,53 @@ class CollectionsTableViewController: UITableViewController {
         return true
     }
     */
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            
+//            //MARK: Fade-in effect
+//            // Define the initial state (Before the animation)
+//            cell.alpha = 0
+//
+//            // Define the final state (After the animation)
+//            UIView.animate(withDuration: 1.0, delay: 0.05 * Double(indexPath.row), animations: { cell.alpha = 1 })
+            
+//            //MARK: Rotation effect
+//            // Define the initial state (Before the animation)
+//            let rotationAngleInRadians = 90.0 * CGFloat(Double.pi / 180.0)
+//            let rotationTransform = CATransform3DMakeRotation(rotationAngleInRadians, 0, 0, 1)
+//
+//            cell.layer.transform = rotationTransform
+//
+//            // Define the final state (After the animation)
+//        UIView.animate(withDuration: 1.0, delay: 0.05 * Double(indexPath.row),animations: { cell.layer.transform = CATransform3DIdentity })
+            
+//            //MARK: Fly-in effect
+//            // Define the initial state (Before the animation)
+//
+//            if !animatedCellIndecies.contains(indexPath.row) {
+//                let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 100, 0)
+//
+//                cell.layer.transform = rotationTransform
+//
+//                // Define the final state (After the animation)
+//                UIView.animate(withDuration: 1.0, delay: 0.05 * Double(indexPath.row), animations: { cell.layer.transform = CATransform3DIdentity })
+//
+//                animatedCellIndecies.append(indexPath.row)
+//            }
+            
+        //MARK: Slide-in effect
+        if !animatedCellIndecies.contains(indexPath.row) {
+            cell.transform = CGAffineTransform(translationX: tableView.bounds.width, y: 0)
 
+            UIView.animate(
+                withDuration: 0.7,
+                delay: 0.05 * Double(indexPath.row),
+                options: [.curveEaseInOut],
+                animations: {
+                    cell.transform = CGAffineTransform(translationX: 0, y: 0)
+            })
+        }
+        }
     
     // MARK: - Navigation
 
@@ -189,9 +280,6 @@ class CollectionsTableViewController: UITableViewController {
                 destinationController.collectionIndex = indexPath.row
                 //destinationController.wordDescriptions = wordsInCollectionDescriptions[indexPath.row]
             }
-        } else if segue.identifier == "AddNewSection" {
-            let destinationController = segue.destination.contents as! NewSectionTableViewController
-            destinationController.wordCollections = wordCollections
         } 
     }
     
