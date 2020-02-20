@@ -71,6 +71,7 @@ class LearnWordsViewController: UIViewController {
         }
     }
     
+    
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         if currentWord != (wordCollections?.collections[collectionIndex!].words.count)! - 1, (wordCollections?.collections[collectionIndex!].words.count)! != 0 {
             currentWord += 1

@@ -9,7 +9,17 @@
 import UIKit
 
 class QuizViewController: UIViewController {
-
+    
+    //MARK: - Global Variables and Constants
+    
+    let defaults = UserDefaults.standard
+    var wordCollections: AllCollections?
+    var collectionIndex: Int?
+    private var currentWord = 0
+    private var sessionQuizScore = 0
+    
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,14 +43,12 @@ class QuizViewController: UIViewController {
             }
         }
     }
+    
+    //MARK: - Outlets and Actions
+    
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
-    
-    let defaults = UserDefaults.standard
-    var wordCollections: AllCollections?
-    var collectionIndex: Int?
-    private var currentWord = 0
     
     @IBOutlet weak var cardView: UIView!
     
@@ -52,9 +60,62 @@ class QuizViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var aButton: UIButton!
+    
+    @IBOutlet weak var bButton: UIButton!
+    
+    @IBOutlet weak var cButton: UIButton!
+    
+    @IBOutlet weak var dButton: UIButton!
+    
+    
+    @IBAction func aButtonPressed(_ sender: UIButton) {
+        
+        flipCardForwardForQuiz()
+    }
+    
+    @IBAction func bButtonPressed(_ sender: UIButton) {
+        
+        flipCardForwardForQuiz()
+    }
+    
+    @IBAction func cButtonPressed(_ sender: UIButton) {
+        
+        flipCardForwardForQuiz()
+    }
+    
+    @IBAction func dButtonPressed(_ sender: UIButton) {
+        
+        flipCardForwardForQuiz()
+    }
+    
+    
     @IBAction func nextButtonPressed(_ sender: UIButton) {
+        flipCardForwardForQuiz()
+    }
+    
+    @IBAction func previousButtonPressed(_ sender: Any) {
+        flipCardBackwardForQuiz()
+    }
+    
+    
+    
+    // MARK: - Functions
+    
+    private func flipCardForwardForQuiz() {
         if currentWord != (wordCollections?.collections[collectionIndex!].words.count)! - 1, (wordCollections?.collections[collectionIndex!].words.count)! != 0 {
             currentWord += 1
+            UIView.transition(
+            with: cardView,
+            duration: 0.6,
+            options: [.transitionFlipFromLeft],
+            animations: {
+                self.wordLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordItself
+            },
+            completion: nil)
+        } else if currentWord == (wordCollections?.collections[collectionIndex!].words.count)! - 1{
+            currentWord = 0
+            
             UIView.transition(
             with: cardView,
             duration: 0.6,
@@ -66,7 +127,7 @@ class QuizViewController: UIViewController {
         }
     }
     
-    @IBAction func previousButtonPressed(_ sender: Any) {
+    private func flipCardBackwardForQuiz() {
         if currentWord != 0 {
             currentWord -= 1
             UIView.transition(
@@ -77,9 +138,18 @@ class QuizViewController: UIViewController {
                 self.wordLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordItself
             },
             completion: nil)
+        } else if currentWord == 0, (wordCollections?.collections[collectionIndex!].words.count)! != 0 {
+            currentWord = (wordCollections?.collections[collectionIndex!].words.count)! - 1
+            UIView.transition(
+            with: cardView,
+            duration: 0.6,
+            options: [.transitionFlipFromRight],
+            animations: {
+                self.wordLabel.text = self.wordCollections?.collections[self.collectionIndex!].words[self.currentWord].wordItself
+            },
+            completion: nil)
         }
     }
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

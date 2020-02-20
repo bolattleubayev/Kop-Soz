@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA587C3E23D4D7AA004F4C1B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA587C3D23D4D7AA004F4C1B /* SettingsTableViewController.swift */; };
 		FA587C4023D50CBA004F4C1B /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA587C3F23D50CBA004F4C1B /* ContactsTableViewController.swift */; };
+		FA790D8823FD51DE000627BC /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA790D8723FD51DE000627BC /* AboutTableViewCell.swift */; };
 		FA87F17D23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F17C23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift */; };
 		FA87F18123C4599800BB7CFD /* AllCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F18023C4599800BB7CFD /* AllCollections.swift */; };
 		FA87F18323C46B8900BB7CFD /* LearnWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87F18223C46B8900BB7CFD /* LearnWordsTableViewController.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		FA587C3D23D4D7AA004F4C1B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		FA587C3F23D50CBA004F4C1B /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		FA790D8723FD51DE000627BC /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
 		FA87F17C23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordToAddTableViewController.swift; sourceTree = "<group>"; };
 		FA87F18023C4599800BB7CFD /* AllCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollections.swift; sourceTree = "<group>"; };
 		FA87F18223C46B8900BB7CFD /* LearnWordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnWordsTableViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				FAC5372523B7F37600DCFD3C /* CollectionsTableViewCell.swift */,
 				FAC5372C23B7FE9F00DCFD3C /* WordsInCollectionTableViewCell.swift */,
+				FA790D8723FD51DE000627BC /* AboutTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				FA587C4023D50CBA004F4C1B /* ContactsTableViewController.swift in Sources */,
 				FA87F18723C477E600BB7CFD /* QuizTableViewController.swift in Sources */,
 				FAC5372D23B7FE9F00DCFD3C /* WordsInCollectionTableViewCell.swift in Sources */,
+				FA790D8823FD51DE000627BC /* AboutTableViewCell.swift in Sources */,
 				FA87F17D23BA9DA500BB7CFD /* NewWordToAddTableViewController.swift in Sources */,
 				FAC5372223B7EE2900DCFD3C /* CollectionsTableViewController.swift in Sources */,
 				FAC5372823B7FB5800DCFD3C /* WordsInCollectionTableViewController.swift in Sources */,

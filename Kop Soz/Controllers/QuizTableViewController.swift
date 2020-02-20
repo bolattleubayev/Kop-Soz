@@ -24,8 +24,8 @@ class QuizTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.foregroundColor: UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)]
-        navigationController?.navigationBar.tintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 193.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 0.8014437556, blue: 0.004643389955, alpha: 1)]
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.8014437556, blue: 0.004643389955, alpha: 1)
         
         // Prepare the empty view
         tableView.backgroundView = emptyQuizView

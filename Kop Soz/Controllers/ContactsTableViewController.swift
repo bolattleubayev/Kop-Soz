@@ -80,11 +80,11 @@ class ContactsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AboutCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AboutCell", for: indexPath) as! AboutTableViewCell
 
         // Configure the cell...
         let cellData = sectionContent[indexPath.section][indexPath.row]
-        cell.textLabel?.text = cellData.text
+        cell.aboutLabel?.text = cellData.text
         
         return cell
     }
