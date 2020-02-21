@@ -87,16 +87,16 @@ class NewWordToAddTableViewController: UITableViewController, UITextFieldDelegat
         super.viewWillAppear(animated)
         if defaults.integer(forKey: "language") == 0 {
             navigationItem.title = "Жаңа сөзді қосу"
-            wordLabel.text = "Сөз"
-            descriptionLabel.text = "Сипаттама"
+            wordLabel.text = " Сөз"
+            descriptionLabel.text = " Сипаттама"
         } else if defaults.integer(forKey: "language") == 1 {
             navigationItem.title = "Добавить новое слово"
-            wordLabel.text = "Слово"
-            descriptionLabel.text = "Описание"
+            wordLabel.text = " Слово"
+            descriptionLabel.text = " Описание"
         } else {
             navigationItem.title = "Add new word"
-            wordLabel.text = "Word"
-            descriptionLabel.text = "Description"
+            wordLabel.text = " Word"
+            descriptionLabel.text = " Description"
         }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

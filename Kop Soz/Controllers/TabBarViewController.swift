@@ -27,8 +27,6 @@ class TabBarViewController: UITabBarController {
     
     @objc func changeNamesOfTabs(notification: Notification) {
         
-        print("changeNamesTabs")
-        
         if defaults.integer(forKey: "language") == 0 {
             tabBar.items?[0].title = "Қосу"
             tabBar.items?[1].title = "Оқу"

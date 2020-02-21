@@ -110,9 +110,19 @@ class ContactsTableViewController: UITableViewController {
             break
         }
         
+        
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        let headerView = view as! UITableViewHeaderFooterView
+        
+        headerView.tintColor = UIColor.clear
+        
+        headerView.textLabel?.textColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        
+        headerView.textLabel?.font = UIFont(name: "GillSans-SemiBoldItalic", size: 23)
+    }
    
-
 }

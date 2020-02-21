@@ -265,7 +265,7 @@ class QuizViewController: UIViewController {
             
             for remainingButtonIndex in wordsArray.count ..< 4 {
                 if let button = buttonsArray[remainingButtonIndex] {
-                    button.setTitle(wordsArray[remainingButtonIndex - wordsArray.count], for: .normal)
+                    button.setTitle("", for: .normal)
                 }
             }
             

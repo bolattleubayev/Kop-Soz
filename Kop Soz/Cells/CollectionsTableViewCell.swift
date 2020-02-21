@@ -8,9 +8,13 @@
 
 import UIKit
 
-class CollectionsTableViewCell: UITableViewCell {
+class CollectionsTableViewCell: UITableViewCell, UITextFieldDelegate {
     
-    @IBOutlet weak var collectionNameTextField: UITextField!
+    @IBOutlet weak var collectionNameTextField: UITextField! {
+        didSet {
+            collectionNameTextField.delegate = self
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +26,16 @@ class CollectionsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    var resignationHandler: (() -> Void)?
+    
+    func textFieldDidEndEditing(_ collectionNameTextField: UITextField) {
+        resignationHandler?() // when someone is interested in resignation of the cell, anyone can go and edit it
+    }
+    
+    // puts keyboard away once you hit enter, if you don't do this, keyboard will stay up
+    func textFieldShouldReturn(_ collectionNameTextField: UITextField) -> Bool {
+        collectionNameTextField.resignFirstResponder()
+        return true
+    }
 }

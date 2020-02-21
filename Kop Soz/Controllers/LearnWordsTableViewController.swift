@@ -12,12 +12,16 @@ class LearnWordsTableViewController: UITableViewController {
     
     var wordCollections = AllCollections()
     let defaults = UserDefaults.standard
+    var animatedCellIndecies = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 0.8014437556, blue: 0.004643389955, alpha: 1)]
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.8014437556, blue: 0.004643389955, alpha: 1)
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
         
         // Prepare the empty view
         tableView.backgroundView = emptyLearnView
@@ -87,7 +91,25 @@ class LearnWordsTableViewController: UITableViewController {
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        //MARK: Slide-in, Fade-in effect
+        if !animatedCellIndecies.contains(indexPath.row) {
+            cell.transform = CGAffineTransform(translationX: tableView.bounds.width, y: 0)
+            cell.alpha = 0
+            
+            UIView.animate(
+                withDuration: 0.7,
+                delay: 0.05 * Double(indexPath.row),
+                options: [.curveEaseInOut],
+                animations: {
+                    cell.transform = CGAffineTransform(translationX: 0, y: 0)
+                    cell.alpha = 1
+            })
+            
+            animatedCellIndecies.append(indexPath.row)
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -12,6 +12,7 @@ class QuizTableViewController: UITableViewController {
     
     var wordCollections = AllCollections()
     let defaults = UserDefaults.standard
+    var animatedCellIndecies = [Int]()
     
     @IBOutlet var emptyQuizView: UIView!
     
@@ -26,6 +27,9 @@ class QuizTableViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 0.8014437556, blue: 0.004643389955, alpha: 1)]
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.8014437556, blue: 0.004643389955, alpha: 1)
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
         
         // Prepare the empty view
         tableView.backgroundView = emptyQuizView
@@ -88,6 +92,27 @@ class QuizTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        //MARK: Slide-in, Fade-in effect
+        if !animatedCellIndecies.contains(indexPath.row) {
+            cell.transform = CGAffineTransform(translationX: tableView.bounds.width, y: 0)
+            cell.alpha = 0
+            
+            UIView.animate(
+                withDuration: 0.7,
+                delay: 0.05 * Double(indexPath.row),
+                options: [.curveEaseInOut],
+                animations: {
+                    cell.transform = CGAffineTransform(translationX: 0, y: 0)
+                    cell.alpha = 1
+            })
+            
+            animatedCellIndecies.append(indexPath.row)
+        }
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
