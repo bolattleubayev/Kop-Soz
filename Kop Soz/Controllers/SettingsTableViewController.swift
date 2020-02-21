@@ -21,6 +21,10 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         languageSegmentedControlOutlet.selectedSegmentIndex = defaults.integer(forKey: "language")
+        changeLabelsLanguage()
+    }
+    
+    private func changeLabelsLanguage() {
         if defaults.integer(forKey: "language") == 0 {
             navigationItem.title = "Теңшеулер"
             contactsLabel.text = "Контакттар"
@@ -36,19 +40,22 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
-    
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var contactsLabel: UILabel!
     
     @IBOutlet weak var languageSegmentedControlOutlet: UISegmentedControl! {
         didSet {
             languageSegmentedControlOutlet.selectedSegmentIndex = defaults.integer(forKey: "language")
+            NotificationCenter.default.post(name: Notification.Name("LanguageChanged"), object: nil)
+            changeLabelsLanguage()
         }
     }
     
     
     @IBAction func languageChanged(_ sender: UISegmentedControl) {
         defaults.set(languageSegmentedControlOutlet.selectedSegmentIndex, forKey: "language")
+        NotificationCenter.default.post(name: Notification.Name("LanguageChanged"), object: nil)
+        changeLabelsLanguage()
     }
     
 }

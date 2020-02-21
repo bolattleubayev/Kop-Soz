@@ -12,11 +12,17 @@ class QuizViewController: UIViewController {
     
     //MARK: - Global Variables and Constants
     
+    // model
     let defaults = UserDefaults.standard
     var wordCollections: AllCollections?
     var collectionIndex: Int?
     private var currentWord = 0
-    private var sessionQuizScore = 0
+    
+    // Score tracking
+    private var correctScore = 0
+    private var wrongScore = 0
+    
+    // Game logic
     private var wordsArray = [String]()
     private var wordOptions = [String]()
     private var correctAnswerIndex: Int?
@@ -50,10 +56,16 @@ class QuizViewController: UIViewController {
         if wordCollections?.collections[collectionIndex!].words.count == 0 {
             if defaults.integer(forKey: "language") == 0 {
                 wordLabel.text = "Сөздер жоқ"
+                correctPointsLabel.text = "Дұрыс"
+                wrongPointsLabel.text = "Дұрыс емес"
             } else if defaults.integer(forKey: "language") == 1 {
                 wordLabel.text = "Нет слов"
+                correctPointsLabel.text = "Правильно"
+                wrongPointsLabel.text = "Неравильно"
             } else {
                 wordLabel.text = "No words"
+                correctPointsLabel.text = "Correct"
+                wrongPointsLabel.text = "Wrong"
             }
         }
         
@@ -75,6 +87,10 @@ class QuizViewController: UIViewController {
             }
         }
     }
+    
+    @IBOutlet weak var correctPointsLabel: UILabel!
+    
+    @IBOutlet weak var wrongPointsLabel: UILabel!
     
     @IBOutlet weak var aButton: UIButton!
     
@@ -109,17 +125,6 @@ class QuizViewController: UIViewController {
         flipCardForwardForQuiz()
     }
     
-    
-    @IBAction func nextButtonPressed(_ sender: UIButton) {
-        flipCardForwardForQuiz()
-    }
-    
-    @IBAction func previousButtonPressed(_ sender: Any) {
-        flipCardBackwardForQuiz()
-    }
-    
-    
-    
     // MARK: - Functions
     
     private func buttonAnimator(buttonUsed: UIButton) {
@@ -128,6 +133,17 @@ class QuizViewController: UIViewController {
         
         if let correctAnswer = correctAnswerIndex {
             if correctAnswer == buttonsArray.firstIndex(of: buttonUsed) {
+                
+                correctScore += 1
+                
+                if defaults.integer(forKey: "language") == 0 {
+                    correctPointsLabel.text = "Дұрыс: \(correctScore)"
+                } else if defaults.integer(forKey: "language") == 1 {
+                    correctPointsLabel.text = "Правильно: \(correctScore)"
+                } else {
+                    correctPointsLabel.text = "Correct: \(correctScore)"
+                }
+                
                 buttonUsed.layer.backgroundColor = #colorLiteral(red: 0, green: 0.319541961, blue: 0.6728987098, alpha: 1)
                 
                 UIView.animate(withDuration: 0.4) {
@@ -137,7 +153,19 @@ class QuizViewController: UIViewController {
                 UIView.animate(withDuration: 0.3) {
                     buttonUsed.layer.backgroundColor =  #colorLiteral(red: 0, green: 0.319541961, blue: 0.6728987098, alpha: 1)
                 }
+                
             } else {
+                
+                wrongScore += 1
+                
+                if defaults.integer(forKey: "language") == 0 {
+                    wrongPointsLabel.text = "Дұрыс емес: \(wrongScore)"
+                } else if defaults.integer(forKey: "language") == 1 {
+                    wrongPointsLabel.text = "Неравильно: \(wrongScore)"
+                } else {
+                    wrongPointsLabel.text = "Wrong: \(wrongScore)"
+                }
+                
                 buttonUsed.layer.backgroundColor = #colorLiteral(red: 0, green: 0.319541961, blue: 0.6728987098, alpha: 1)
                 
                 UIView.animate(withDuration: 0.4) {
