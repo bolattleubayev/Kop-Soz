@@ -277,7 +277,6 @@ class CollectionsTableViewController: UITableViewController {
         if indexPath.section == 1 {
             
             saver()
-
             performSegue(withIdentifier: "showWordsInCollection", sender: self)
         }
     }

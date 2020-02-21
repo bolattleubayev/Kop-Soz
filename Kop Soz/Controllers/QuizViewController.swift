@@ -253,7 +253,7 @@ class QuizViewController: UIViewController {
                 }
             }
             
-        } else if wordsArray.count < 4 {
+        } else if wordsArray.count < 5 {
             
             // if less than 4 (number of buttons) words
             
@@ -275,8 +275,9 @@ class QuizViewController: UIViewController {
             
             // generate arrays with random numbers
             let randomWordsIndecies = getRandomUniqueIntegers(amount: 4, minimum: 0, maximum: UInt32(wordsArray.count - 1), notIncluding: currentWord)
+            //print(randomWordsIndecies)
             let randomButtonIndecies = getRandomInts(amount: 4, minimum: 0, maximum: 3)
-            
+            //print(randomButtonIndecies)
             // go through buttons
             for button in buttonsArray {
                 if let button = button {
