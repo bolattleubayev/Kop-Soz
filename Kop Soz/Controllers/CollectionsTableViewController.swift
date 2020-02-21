@@ -250,55 +250,27 @@ class CollectionsTableViewController: UITableViewController {
     */
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-            
-//            //MARK: Fade-in effect
-//            // Define the initial state (Before the animation)
-//            cell.alpha = 0
-//
-//            // Define the final state (After the animation)
-//            UIView.animate(withDuration: 1.0, delay: 0.05 * Double(indexPath.row), animations: { cell.alpha = 1 })
-            
-//            //MARK: Rotation effect
-//            // Define the initial state (Before the animation)
-//            let rotationAngleInRadians = 90.0 * CGFloat(Double.pi / 180.0)
-//            let rotationTransform = CATransform3DMakeRotation(rotationAngleInRadians, 0, 0, 1)
-//
-//            cell.layer.transform = rotationTransform
-//
-//            // Define the final state (After the animation)
-//        UIView.animate(withDuration: 1.0, delay: 0.05 * Double(indexPath.row),animations: { cell.layer.transform = CATransform3DIdentity })
-            
-//            //MARK: Fly-in effect
-//            // Define the initial state (Before the animation)
-//
-//            if !animatedCellIndecies.contains(indexPath.row) {
-//                let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 100, 0)
-//
-//                cell.layer.transform = rotationTransform
-//
-//                // Define the final state (After the animation)
-//                UIView.animate(withDuration: 1.0, delay: 0.05 * Double(indexPath.row), animations: { cell.layer.transform = CATransform3DIdentity })
-//
-//                animatedCellIndecies.append(indexPath.row)
-//            }
-            
+        
         //MARK: Slide-in, Fade-in effect
-        if !animatedCellIndecies.contains(indexPath.row) {
-            cell.transform = CGAffineTransform(translationX: tableView.bounds.width, y: 0)
-            cell.alpha = 0
-            
-            UIView.animate(
-                withDuration: 0.7,
-                delay: 0.05 * Double(indexPath.row),
-                options: [.curveEaseInOut],
-                animations: {
-                    cell.transform = CGAffineTransform(translationX: 0, y: 0)
-                    cell.alpha = 1
-            })
-            
-            animatedCellIndecies.append(indexPath.row)
+        if indexPath.section == 1 {
+            if !animatedCellIndecies.contains(indexPath.row) {
+                cell.transform = CGAffineTransform(translationX: tableView.bounds.width, y: 0)
+                cell.alpha = 0
+                
+                UIView.animate(
+                    withDuration: 0.7,
+                    delay: 0.05 * Double(indexPath.row),
+                    options: [.curveEaseInOut],
+                    animations: {
+                        cell.transform = CGAffineTransform(translationX: 0, y: 0)
+                        cell.alpha = 1
+                })
+                
+                animatedCellIndecies.append(indexPath.row)
+            }
         }
-        }
+        
+    }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
